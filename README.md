@@ -17,12 +17,12 @@ Rename the config.json.example file to config.json and edit the settings in the 
 
 To get the channel ID of a channel in your discord server, turn on developer mode in your discord user settings (under "Appearance"). You can then get the channel ID by right-clicking a channel and selecting "Copy ID".
 
-To create a Twitch development app for the Client-ID and Secret go to the [Twitch Developers website](https://dev.twitch.tv/console/apps) 
+To create a Twitch development app for the Client-ID and Client-Secret go to the [Twitch Developers website](https://dev.twitch.tv/console/apps) 
 
-To create a Discord Bot / Application and get a token, check out the [Discord Developer Portal](https://discordapp.com/developers/applications/)
+To create a Discord Bot / Application and get a bot token, check out the [Discord Developer Portal](https://discordapp.com/developers/applications/)
 
-To get the bot running, you will need Twitch OAuth Access Token.
-To receive one, run through the [OAuth Authorization Code Flow](https://dev.twitch.tv/docs/authentication/getting-tokens-oauth#oauth-authorization-code-flow)
+To get the bot running, you will need a Twitch OAuth Refresh Token.
+To receive one, run through the [OAuth Authorization Code Flow](https://dev.twitch.tv/docs/authentication/getting-tokens-oauth#oauth-authorization-code-flow) - at the end of the process, you will have an Access Token and a Refresh Token.
 
 To get a list of games you want to track, grab the id and boxArt off the [Twitch API Games Endpoint](https://dev.twitch.tv/docs/api/reference#get-games)
 An entry for the games object needs to have the following format:
