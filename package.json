@@ -1,0 +1,30 @@
+{
+  "name": "zsrstreams",
+  "description": "Discord Bot for Detection of Zelda Speedrunning Streams on Twitch",
+  "main": "index.js",
+  "version": "1.0.0",
+  "author": "TreZc0_ <zsrstaff@gmail.com> (https://www.zeldaspeedruns.com)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TreZc0/zsrstreams.git"
+  },
+  "bugs": "https://github.com/TreZc0/zsrstreams/issues",
+  "homepage": "https://www.zeldaspeedruns.com",
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "zelda",
+    "twitch",
+    "discord",
+    "speedrunning",
+    "announcements",
+    "advertising",
+    "bot"
+  ],
+  "dependencies": {
+    "discord.js": "11.3.2",
+    "edit-json-file": "1.4.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
+  }
+}

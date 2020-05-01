@@ -1,0 +1,20 @@
+{
+  "discord-response-channel-id": "Discord ChannelID (for stream lists)",
+  "discord-notifications-channel-id": "Discord ChannelID (for manual commands)",
+  "bot-currently-playing": "Optional: Text for the "Playing line below a Username in Discord",
+  "twitch-client-id": "Twitch App Client ID",
+  "twitch-client-secret": "Twitch App Client Secret",
+  "twitch-refresh-token": "Twitch API OAuth2 Refresh Token",
+  "twitch-access-token": "", // this gets added by the bot itself
+  "twitch-access-token-expires-At": 0,  // this gets adjusted by the bot itself
+  "discord-token": "Discord App Developer Token"
+  "games": {
+    "10979": { "name": "The Legend of Zelda", "boxArt": "https://static-cdn.jtvnw.net/ttv-boxart/The%20Legend%20of%20Zelda-90x120.jpg" },
+    "14890": { "name": "Zelda II: The Adventure of Link", "boxArt": "https://static-cdn.jtvnw.net/ttv-boxart/Zelda%20II:%20The%20Adventure%20of%20Link-90x120.jpg" }
+  },
+  "tags": [
+    "7cefbf30-4c3e-4aa7-99cd-70aabb662f27",
+    "2fd30cb8-f2e5-415d-9d42-1316cfa61367",
+    "0b83a789-5f6a-45f0-b6a3-a56926b6f8b5"
+  ]
+}
