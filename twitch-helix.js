@@ -64,7 +64,8 @@ function pageLoop(res, nextCursor) {
           getOauthToken().catch(e => {
             console.error("error while trying to receive access token: " + e);
           }).then((token) => {
-            return getStreams(token, nextCursor);
+            if (token != null)
+              return getStreams(token, nextCursor);
           }).then((nextPage) => {
 
             if (nextPage && nextPage.data && nextPage.data.length > 0) {
@@ -123,7 +124,8 @@ function getGameStreams(gameIDs) {
     getOauthToken().catch(e => {
       console.error("error while trying to receive access token: " + e);
     }).then((token) => {
-      return getStreams(gameIDs, token);
+      if (token != null)
+        return getStreams(gameIDs, token);
     }).then((twitchData) => {
       let res = [];
 
