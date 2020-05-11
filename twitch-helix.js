@@ -56,7 +56,7 @@ function getStreams(gameIDs, token, cursor = "") {
 
 //This loops through the different pagination cursors of a current getStreams run to get a complete list of streams
 // resolves with a list of streams for the current cursor
-function pageLoop(res, nextCursor) {
+function pageLoop(gameIDs, res, nextCursor) {
   return new Promise(
     function (resolve, reject) {
       setTimeout(() => {
@@ -64,7 +64,7 @@ function pageLoop(res, nextCursor) {
           getOauthToken().catch(e => {
             console.error("error while trying to receive access token: " + e);
           }).then((token) => {
-            return getStreams(token, nextCursor);
+            return getStreams(gameIDs, token, nextCursor);
           }).then((nextPage) => {
 
             if (nextPage && nextPage.data && nextPage.data.length > 0) {
@@ -107,10 +107,10 @@ function pageLoop(res, nextCursor) {
 }
 //recursively goes through the streams with the current set of gameIDs and returns once no more cursor is provided by the API
 //returns a complete list of streams
-function pagination(res, nextCursor) {
-  return pageLoop(res, nextCursor).then((result) => {
+function pagination(gameIDs, res, nextCursor) {
+  return pageLoop(gameIDs, res, nextCursor).then((result) => {
     if (result.next != null) {
-      return pagination(result.res, result.next);
+      return pagination(gameIDs, result.res, result.next);
     }
     else return result.res;
   })
@@ -142,7 +142,7 @@ function getGameStreams(gameIDs) {
       var nextCursor;
       if (twitchData.pagination.cursor)
         nextCursor = twitchData.pagination.cursor;
-      pagination(res, nextCursor).then(fullGameData => {
+      pagination(gameIDs, res, nextCursor).then(fullGameData => {
         resolve(fullGameData);
       });
     });
