@@ -42,7 +42,7 @@ function getStreams(gameIDs, token, cursor = "") {
   return rp.get("https://api.twitch.tv/helix/streams", {
     headers: {
       "Client-ID": config["twitch-client-id"],
-      "Authorization": "OAuth " + token,
+      "Authorization": "Bearer " + token,
     },
     qs: {
       "game_id": gameIDs,
@@ -64,8 +64,7 @@ function pageLoop(res, nextCursor) {
           getOauthToken().catch(e => {
             console.error("error while trying to receive access token: " + e);
           }).then((token) => {
-            if (token != null)
-              return getStreams(token, nextCursor);
+            return getStreams(token, nextCursor);
           }).then((nextPage) => {
 
             if (nextPage && nextPage.data && nextPage.data.length > 0) {
@@ -124,8 +123,7 @@ function getGameStreams(gameIDs) {
     getOauthToken().catch(e => {
       console.error("error while trying to receive access token: " + e);
     }).then((token) => {
-      if (token != null)
-        return getStreams(gameIDs, token);
+      return getStreams(gameIDs, token);
     }).then((twitchData) => {
       let res = [];
 
@@ -156,7 +154,7 @@ function getUsers(ids) {
   return rp.get("https://api.twitch.tv/helix/users", {
     headers: {
       "Client-ID": config["twitch-client-id"],
-      "Authorization": "OAuth " + config["twitch-access-token"],
+      "Authorization": "Bearer " + config["twitch-access-token"],
     },
     qs: {
       "id": ids,
